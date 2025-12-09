@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { ButtonComponent } from '../../../shared/button/button.component';
 
 @Component({
   selector: 'app-new-tiket',
   standalone: true,
-  imports: [],
+  imports: [
+    ButtonComponent
+  ],
   templateUrl: './new-tiket.component.html',
   styleUrl: './new-tiket.component.css'
 })
