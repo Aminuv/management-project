@@ -1,18 +1,16 @@
 <form>
-  <p>
-    <label for="title">Title:</label>
+  <app-controle label="Title">
     <input type="text" id="title" name="title" required>
-  </p>
+  </app-controle>
 
-  <p>
-    <label for="request">Request:</label>
+  <app-controle label="Request">
     <textarea id="request" name="request" required></textarea>
-  </p>
+  </app-controle>
 
   <p>
     <button type="submit" appButton>
         Create Ticket
-        <span class="icon"> 📨 </span>
+        <span ngProjectAs="icon"> 📨 </span>
     </button>
   </p>
 </form>
