@@ -1,10 +1,10 @@
-<form>
+<form (ngSubmit)="onCreateTicket(titleInput.value, textInput.value)" #form>
   <app-controle label="Title">
-    <input type="text" id="title" name="title" required>
+    <input type="text" id="title" name="title" #titleInput #input/>
   </app-controle>
 
   <app-controle label="Request">
-    <textarea id="request" name="request" required></textarea>
+    <textarea id="request" name="request" #textInput #input></textarea>
   </app-controle>
 
   <p>
