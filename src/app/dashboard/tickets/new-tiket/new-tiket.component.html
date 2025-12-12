@@ -1,10 +1,21 @@
-<form (ngSubmit)="onCreateTicket(titleInput.value, textInput.value)" #form>
+<form (ngSubmit)="onCreateTicket()" #form>
   <app-controle label="Title">
-    <input type="text" id="title" name="title" #titleInput #input/>
+    <input 
+    type="text" 
+    id="title" 
+    name="title"  
+    #input 
+    [(ngModel)]="enterTitle"/>
   </app-controle>
 
   <app-controle label="Request">
-    <textarea id="request" name="request" #textInput #input></textarea>
+    <textarea 
+    id="request" 
+    name="request"  
+    #input 
+    rows="3"
+    [(ngModel)]="enterText"
+    ></textarea>
   </app-controle>
 
   <p>
