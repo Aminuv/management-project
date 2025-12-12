@@ -25,7 +25,15 @@ export class TicketsComponent {
     };
 
     this.tickets.push(tiket);
-    console.log(this.tickets);
+  }  
+
+  onCloseTicket(id: string) {
+    this.tickets = this.tickets.map((tiket) => {
+      if (tiket.id === id) {
+        return { ...tiket, status: 'closed' };
+      }
+      return tiket;
+    });
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
+import { Tikets } from '../tikits.model';
 
 @Component({
   selector: 'app-tiket',
@@ -9,4 +10,15 @@ import { Component } from '@angular/core';
 })
 export class TiketComponent {
 
+  data = input.required<Tikets>();
+  close = output();
+  detailsVisisble = signal(false);
+
+  onToggleDetails() {
+    this.detailsVisisble.update((wasVisible) => !wasVisible);
+  }
+
+  onMarkAsClosed() {
+    this.close.emit();
+  }
 }
