@@ -1,1 +1,15 @@
-  <app-new-tiket/>
+<div>
+  <ul>
+    @for (ticket of tickets; track ticket.id) {
+      <li>
+        <app-tiket/>
+      </li>
+    } @empty {
+      <p>No tickets yet.</p>
+    }
+  </ul>
+</div>
+
+<div class="new-tickets">
+  <app-new-tiket (add)="onAddTicket($event)" />
+</div>

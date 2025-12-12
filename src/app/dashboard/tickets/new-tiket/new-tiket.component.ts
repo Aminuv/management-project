@@ -1,4 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, viewChild } from '@angular/core'; 
+import { 
+  AfterViewInit, Component, ElementRef, OnInit, output, ViewChild, viewChild 
+    } from '@angular/core'; 
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControleComponent } from "../../../shared/controle/controle.component";
@@ -18,6 +20,8 @@ export class NewTiketComponent implements OnInit, AfterViewInit{
   @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
   //private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
+  add = output<{ title: string; text: string }>();
+
   ngOnInit() {
     console.log('ONINIT');
     console.log(this.form?.nativeElement);
@@ -29,9 +33,7 @@ export class NewTiketComponent implements OnInit, AfterViewInit{
   }
 
   onCreateTicket(title : string, tiketText : string) {
-    console.log('ENTRED TITLE:', title);
-    console.log('ENTRED TEXT:', tiketText);
-
+    this.add.emit({ title: title, text: tiketText });
     this.form?.nativeElement.reset();
   }
 }
